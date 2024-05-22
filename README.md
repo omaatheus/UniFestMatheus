@@ -27,4 +27,5 @@ Siga os passos abaixo para configurar o projeto localmente:
 
 1. Clone o repositório:
 2. Rode o `npm install`
-3. Rode o projeto
+3. Pegue suas credenciais do supabase e crie o arquivo `config.ts`
+4. Rode o projeto
