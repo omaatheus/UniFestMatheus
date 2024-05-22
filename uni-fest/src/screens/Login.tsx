@@ -2,19 +2,50 @@ import { Button, Text, TextInput } from "react-native-paper";
 import AlignedLogin from "../components/AlignedLogin";
 import { width } from "../constants/measures";
 import { StyleSheet, View } from "react-native";
+import { signInWithEmail } from "../lib/supabase/auth";
+import { useState } from "react";
 
 interface Props {
   navigation: any;
 }
 
 export default function Login(props: Props) {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  async function tryLogin(email: string, password: string) {
+    const error = await signInWithEmail(email, password);
+    
+    if (error) {
+      console.log("Error", error);
+      return;
+    }
+
+    props.navigation.navigate("Home");
+  }
+
   return (
     <AlignedLogin>
       <View style={styles.title}>
         <Text style={styles.title}>Log in</Text>
-        <TextInput style={styles.generic} label="Email" />
-        <TextInput style={styles.generic} label="Password" />
-        <Button style={styles.generic} mode="contained">
+        <TextInput
+          value={email}
+          onChangeText={setEmail}
+          style={styles.generic}
+          label="Email"
+        />
+        <TextInput
+          value={password}
+          onChangeText={setPassword}
+          secureTextEntry
+          style={styles.generic}
+          label="Password"
+        />
+        <Button
+          style={styles.generic}
+          mode="contained"
+          onPress={() => tryLogin(email, password)}
+        >
           Log in
         </Button>
         <Button
