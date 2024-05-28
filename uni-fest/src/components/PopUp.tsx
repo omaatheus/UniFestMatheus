@@ -10,6 +10,7 @@ import {
 import AlignedLogin from "./AlignedLogin";
 import Places from "../types/Places";
 import React from "react";
+import theme from "../constants/theme";
 
 export interface Props {
   isSimple: boolean;
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
   box: {
     width: width * 0.95,
     height: height * 0.8,
-    backgroundColor: MD3Colors.primary10,
+    backgroundColor: theme.main,
     borderRadius: 24,
     padding: 16,
   },

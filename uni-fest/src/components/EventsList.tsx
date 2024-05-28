@@ -8,6 +8,7 @@ import {
   Text,
 } from "react-native-paper";
 import { height } from "../constants/measures";
+import theme from "../constants/theme";
 
 export interface Props {
   eventsList: Events[];
@@ -62,7 +63,7 @@ export default function EventsLists(props: Props) {
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: MD3Colors.primary20,
+    backgroundColor: theme.secondary,
     marginBottom: 12,
     maxHeight: height * 0.3,
     display: "flex",

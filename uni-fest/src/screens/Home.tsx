@@ -91,6 +91,7 @@ export default function Home(props: Props) {
       )}
       <SafeAreaView style={{ alignItems: "center" }}>
         <MapView
+          tintColor="black"
           initialRegion={{
             latitude: -22.843058,
             longitude: -47.053862,
@@ -110,7 +111,7 @@ export default function Home(props: Props) {
                 }}
               >
                 <Chip
-                  mode="flat"
+                  mode="outlined"
                   icon="party-popper"
                   onPress={() => {
                     setCurrentPopUpInfo({

@@ -5,8 +5,9 @@ export default interface Places {
   latitude: number;
   longitude: number;
   name: string;
-  image?: string
+  image?: string;
   description: string;
   rate: number;
-  events: Events[]
+  images?: string[];
+  events: Events[];
 }
