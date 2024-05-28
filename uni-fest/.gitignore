@@ -35,4 +35,4 @@ yarn-error.*
 *.tsbuildinfo
 
 # Our dependencies
-/src/lib/supabase/config.ts
+# /src/lib/supabase/config.ts

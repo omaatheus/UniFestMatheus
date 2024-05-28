@@ -1,4 +1,5 @@
-import { supabase } from "./config";
+import { User } from "../../types/User";
+import { supabase } from "../supabase/config";
 
 // 
 export async function signInWithEmail(email: string, password: string) {
@@ -9,13 +10,13 @@ export async function signInWithEmail(email: string, password: string) {
   return error;
 }
 
-export async function signUpWithEmail(email: string, password: string) {
+export async function signUpWithEmail(User: User) {
   const {
     data: { session },
     error,
   } = await supabase.auth.signUp({
-    email: email,
-    password: password,
+    email: User.email,
+    password: User.password,
   });
 
   return { session, error };
