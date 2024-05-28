@@ -4,6 +4,9 @@ import { width } from "../constants/measures";
 import { StyleSheet, View } from "react-native";
 import { signInWithEmail } from "../lib/supabase/auth";
 import { useState } from "react";
+import { ThemeSupa } from '@supabase/auth-ui-shared'
+import { supabase } from "../lib/supabase/config";
+import { Auth } from '@supabase/auth-ui-react'
 
 interface Props {
   navigation: any;
@@ -15,7 +18,7 @@ export default function Login(props: Props) {
 
   async function tryLogin(email: string, password: string) {
     const error = await signInWithEmail(email, password);
-    
+
     if (error) {
       console.log("Error", error);
       return;
@@ -31,12 +34,14 @@ export default function Login(props: Props) {
         <TextInput
           value={email}
           onChangeText={setEmail}
+          autoComplete="email"
           style={styles.generic}
           label="Email"
         />
         <TextInput
           value={password}
           onChangeText={setPassword}
+          autoComplete="password"
           secureTextEntry
           style={styles.generic}
           label="Password"
